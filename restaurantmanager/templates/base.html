@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<style>-->
+        <!--.navbar{-->
+            <!--margin-bottom: 0px;-->
+            <!--border-radius: 0px;-->
+        <!--}-->
+    <!--</style>-->
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -22,10 +28,18 @@
       </div>
     </nav>
 
-    <p> Hello this text is from base.html</p>
+    <main role="main" class="container">
+      <div class="jumbotron">
+        <p> Hello this text is from base.html</p>
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
+      </div>
+    </main>
+
+    <footer class="container-fluid bg-4 text-center">
+      <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p>
+    </footer>
 
 </body>
 </html>

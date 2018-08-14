@@ -14,4 +14,9 @@ def index(request):
     return HttpResponse(template_name.render(context, request))
 
 def aboutus(request):
-    return HttpResponse("Thanks for websiting our website.")
+    # return HttpResponse("Thanks for websiting our website.")
+    template_name = loader.get_template('aboutus.html')
+    context = {
+        'tag1': "Hello, welcome to about us page."
+    }
+    return HttpResponse(template_name.render(context, request))
