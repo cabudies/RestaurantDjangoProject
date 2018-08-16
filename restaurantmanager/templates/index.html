@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>{{ tag }}</p>
-<p>{{ menus }}</p>
+    <p>{{ tag }}</p>
+    <p>{#{ menus }#}</p>
+
+    {% if menus %}
+        <p>Yes there is a variable called menus.</p>
+        <p>{#{ menus }#}</p>
+        {% for menu in menus %}
+            <ul>
+                <li>{{ menu.recipe_name }}</li>
+            </ul>
+        {% endfor %}
+
+    {% else %}
+        <p>Sorry. There's no variable called menus.</p>
+    {% endif %}
+
 
 {% endblock %}
