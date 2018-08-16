@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="/addNewMenu/" method="post">
+        <label for="menu_name">Enter menu name:</label>
+        <input id="menu_name" type="text" name="name_field" value="Default value for menu.">
+        <input type="submit" value="OK">
+    </form>
+{% endblock %}

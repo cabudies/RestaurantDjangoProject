@@ -22,3 +22,9 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.recipe_name
+
+# class Name(models.Model):
+#     name = models.CharField(min_length=3, help_text='Enter your name', verbose_name='Enter your name')
+#
+#     def __str__(self):
+#         return self.name
