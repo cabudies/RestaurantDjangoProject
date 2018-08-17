@@ -1,25 +1,21 @@
 from django import forms
 
-class AddNewMenu(forms.Form):
-    MENU_CATEGORY = (
-        ('veg', 'Vegetarian'),
-        ('non-veg', 'Non Vegetarian'),
-    )
-
-    recipe_name = forms.CharField(max_length=50, help_text='Enter the menu item name',
-                                   verbose_name='Menu Item name')
-
-    menucategory = forms.CharField(max_length=7, choices=MENU_CATEGORY, default='veg',
-                                    help_text='Describe if the dish is veg or non-veg',
-                                    verbose_name='Select the dish type')
-
-    items_in_stock = forms.IntegerField(default=0, help_text='Enter the number of items in stock',
-                                         verbose_name='Number of items in stock')
-
-    price = forms.FloatField(default=0.0, help_text='Enter the price of the menu item',
-                              verbose_name='Price of the menu item')
+# class AddNewMenu(forms.Form):
+#     recipe_name = forms.CharField(max_length=50)
+#     menu_category = forms.CharField(max_length=7)
+#     items_in_stock = forms.IntegerField(default=0)
+#     price = forms.FloatField(default=0.0)
+#
+#     def clean(self):
+#         cleaned_data = super(AddNewMenu, self).clean()
+#         recipe_name = cleaned_data.get('recipe_name')
+#         menu_category = cleaned_data.get('menu_category')
+#         items_in_stock = cleaned_data.get('items_in_stock')
+#         price = cleaned_data.get('price')
+#
+#         if not recipe_name and not menu_category and not items_in_stock and not price:
+#             raise forms.ValidationError('Enter all the values correctly.')
 
 
 class AddName(forms.Form):
-    name = forms.CharField(min_length=3, help_text='Enter the name',
-                                  verbose_name='Name: ')
+    name = forms.CharField()

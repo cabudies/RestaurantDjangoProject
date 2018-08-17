@@ -25,8 +25,61 @@
           <li><a href="#">Page 2</a></li>
           <li><a href="#">Page 3</a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <!--<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+          {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" ><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          {% else %}
+                <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {% endif %}
+        </ul>
       </div>
     </nav>
+
+
+    <!-- Login Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4><span class="glyphicon glyphicon-lock"></span> Provide Login credentials</h4>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;">
+                    <!--{#action="{% url 'login_view' %}"#}-->
+                  <form id="login-form" method="post" action="login/" >
+                      {% csrf_token %}
+                    <div class="form-group">
+                      <label><span class="glyphicon glyphicon-user"></span> Username</label>
+                      <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group">
+                      <label><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="" checked>Remember me</label>
+                    </div>
+                      {% if form.errors %}
+                        <p class=" label label-danger">
+                            Your username and password didn't match.
+                            Please try again.
+                        </p>
+                      {% endif %}
+                      <button type="submit" value="Login" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                  <p>Not a member? <a href="#">Sign Up</a></p>
+                  <p>Forgot <a href="#">Password?</a></p>
+                </div>
+            </div>
+        </div>
+      </div>
+
 
     <main role="main" class="container">
       <div class="jumbotron">

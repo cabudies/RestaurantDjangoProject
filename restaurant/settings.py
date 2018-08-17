@@ -119,3 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Add login url for user to redirect to different website
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

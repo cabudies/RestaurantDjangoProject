@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="/addNewMenu/" method="post">
-        <label for="menu_name">Enter menu name:</label>
-        <input id="menu_name" type="text" name="name_field" value="Default value for menu.">
+    <p>Add New Menu page.</p>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <label for="name">Enter your name:</label>
+        <input id="name" type="text" name="name" value="Default value for menu.">
         <input type="submit" value="OK">
     </form>
 {% endblock %}

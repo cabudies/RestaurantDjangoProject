@@ -7,11 +7,11 @@
     {% if menus %}
         <p>Yes there is a variable called menus.</p>
         <p>{#{ menus }#}</p>
+        <ul>
         {% for menu in menus %}
-            <ul>
-                <li>{{ menu.recipe_name }}</li>
-            </ul>
+                <li>{{ menu.recipe_name }}, category is: {{ menu.menucategory }}</li>
         {% endfor %}
+        </ul>
 
     {% else %}
         <p>Sorry. There's no variable called menus.</p>
